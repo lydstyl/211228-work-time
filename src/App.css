@@ -1,7 +1,7 @@
 .App {
     max-width: 1440px;
     margin: auto;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 header {
@@ -13,7 +13,7 @@ header {
 
     line-height: 40px;
 
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 button {
@@ -31,4 +31,11 @@ button {
 
 footer {
     margin: 40px auto;
+}
+
+footer pre {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    /* border: 1px solid; */
 }

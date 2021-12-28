@@ -12,8 +12,6 @@ interface ClickDate {
 function App() {
     const [clickDates, setClickDates] = useState<ClickDate[]>([])
 
-    const buttonText = clickDates.length % 2 === 0 ? "WORK" : "BREAK"
-
     const handleClick = () => {
         const now = new Date()
 
@@ -29,20 +27,41 @@ function App() {
         setClickDates(newClickDates)
     }
 
+    const getWorkingMinutes = (clickDates: ClickDate[]) => {
+        let min = 0 // working minutes
+        const workClickDates = clickDates.filter(cd => cd.isWork)
+        workClickDates.forEach((wcd, index) => {
+            if (index > 0) {
+                min += (wcd.id - workClickDates[index - 1].id) / (1000 * 60)
+            }
+        })
+
+        return min
+    }
+
+    const getWokringHours = (workingMinutes: number) =>
+        `Work time: ${workingMinutes.toFixed(2)} minutes or ${(
+            workingMinutes / 60
+        ).toFixed(2)} hours`
+
+    const buttonText = clickDates.length % 2 === 0 ? "WORK" : "BREAK"
+    const workingMinutes = getWorkingMinutes(clickDates)
+    const dashboardContent = getWokringHours(workingMinutes)
+
     return (
         <div className="App">
             <header>
-                <div className="dashboard">Dashboard</div>
-
                 <button type="button" onClick={handleClick}>
                     {buttonText}
                 </button>
+
+                <div className="dashboard">{dashboardContent}</div>
             </header>
 
             <div className="click-dates">
                 {clickDates.map(cd => (
-                    <p className="click-date">
-                        {cd.hour} {cd.isWork ? "WORK" : "BREAK"}
+                    <p key={cd.id} className="click-date">
+                        {cd.hour}_>_{cd.isWork ? "WORK_>_" : "BREAK_>_"}
                     </p>
                 ))}
             </div>
