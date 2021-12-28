@@ -61,7 +61,7 @@ function App() {
             <div className="click-dates">
                 {clickDates.map(cd => (
                     <p key={cd.id} className="click-date">
-                        {cd.hour}_>_{cd.isWork ? "WORK_>_" : "BREAK_>_"}
+                        {cd.hour} {cd.isWork ? "WORK" : "BREAK"}
                     </p>
                 ))}
             </div>
