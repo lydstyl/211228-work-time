@@ -1,31 +1,12 @@
 import { useState } from "react"
-// import logo from "./logo.svg"
 import "./App.css"
 
-interface ClickDate {
-    id: number
-    date: Date
-    hour: string
-    isWork: boolean
-}
+import WorkBreakButton from "./components/WorkBreakButton"
+
+import { ClickDate } from "./types/types"
 
 function App() {
     const [clickDates, setClickDates] = useState<ClickDate[]>([])
-
-    const handleClick = () => {
-        const now = new Date()
-
-        const newClickDate: ClickDate = {
-            id: now.getTime(),
-            date: now,
-            hour: `${now.getHours()}H${now.getMinutes()}`,
-            isWork: clickDates.length % 2 === 0,
-        }
-
-        const newClickDates = [...clickDates, newClickDate]
-
-        setClickDates(newClickDates)
-    }
 
     const getWorkingMinutes = (clickDates: ClickDate[]) => {
         if (clickDates.length < 2) {
@@ -53,16 +34,16 @@ function App() {
             workingMinutes / 60
         ).toFixed(2)} hours`
 
-    const buttonText = clickDates.length % 2 === 0 ? "WORK" : "BREAK"
     const workingMinutes = getWorkingMinutes(clickDates)
     const dashboardContent = getWokringHours(workingMinutes)
 
     return (
         <div className="App">
             <header>
-                <button type="button" onClick={handleClick}>
-                    {buttonText}
-                </button>
+                <WorkBreakButton
+                    clickDates={clickDates}
+                    setClickDates={setClickDates}
+                />
 
                 <div className="dashboard">{dashboardContent}</div>
             </header>
