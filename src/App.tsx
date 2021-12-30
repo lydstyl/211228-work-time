@@ -28,13 +28,22 @@ function App() {
     }
 
     const getWorkingMinutes = (clickDates: ClickDate[]) => {
-        let min = 0 // working minutes
-        const workClickDates = clickDates.filter(cd => cd.isWork)
-        workClickDates.forEach((wcd, index) => {
-            if (index > 0) {
-                min += (wcd.id - workClickDates[index - 1].id) / (1000 * 60)
-            }
-        })
+        if (clickDates.length < 2) {
+            return 0
+        }
+
+        let min = 0
+        let clickDatesClone = [...clickDates]
+        if (clickDates.length % 2 !== 0) {
+            // odd or not peer
+            clickDatesClone.pop()
+        }
+
+        for (let i = 1; i <= clickDatesClone.length; i = i + 2) {
+            min +=
+                (clickDatesClone[i].id - clickDatesClone[i - 1].id) /
+                (1000 * 60)
+        }
 
         return min
     }
