@@ -1,10 +1,6 @@
-import { ClickDate } from "../types/types"
+import { ClickDatesProps } from "../types/types"
 
-interface Props {
-    clickDates: ClickDate[]
-}
-
-function ClickDates(props: Props) {
+function ClickDates(props: ClickDatesProps) {
     const { clickDates } = props
     return (
         <div className="click-dates">
