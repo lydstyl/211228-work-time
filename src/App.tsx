@@ -1,9 +1,9 @@
 import { useState } from "react"
+
 import "./App.css"
-
-import WorkBreakButton from "./components/WorkBreakButton"
-
 import { ClickDate } from "./types/types"
+import WorkBreakButton from "./components/WorkBreakButton"
+import ClickDates from "./components/ClickDates"
 
 function App() {
     const [clickDates, setClickDates] = useState<ClickDate[]>([])
@@ -48,13 +48,7 @@ function App() {
                 <div className="dashboard">{dashboardContent}</div>
             </header>
 
-            <div className="click-dates">
-                {clickDates.map(cd => (
-                    <p key={cd.id} className="click-date">
-                        {cd.hour} {cd.isWork ? "WORK" : "BREAK"}
-                    </p>
-                ))}
-            </div>
+            <ClickDates clickDates={clickDates} />
 
             <footer>
                 <pre>{JSON.stringify(clickDates, null, 4)}</pre>
