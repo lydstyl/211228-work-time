@@ -1,4 +1,4 @@
-import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
+import useClickDatesWithContext from "../hooks/useClickDatesWithContext"
 import { ClickDate } from "../types/types"
 
 function Dashboard() {

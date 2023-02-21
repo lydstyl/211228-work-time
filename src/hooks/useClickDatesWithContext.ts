@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import ClickDatesContext from "../clickDatesContext"
+import ClickDatesContext from "../contexts/clickDatesContext"
 
 function useClickDatesWithContext() {
     const clickDatesContext = useContext(ClickDatesContext)

@@ -1,6 +1,5 @@
-import React from "react"
-import { createContext } from "react"
-import { ClickDate } from "./types/types"
+import React, { createContext } from "react"
+import { ClickDate } from "../types/types"
 
 type ClickDatesContext = {
     clickDates: ClickDate[]

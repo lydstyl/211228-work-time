@@ -1,4 +1,4 @@
-import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
+import useClickDatesWithContext from "../hooks/useClickDatesWithContext"
 
 export default function ClearLocalClickDates() {
     const { setClickDates } = useClickDatesWithContext()

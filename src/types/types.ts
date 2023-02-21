@@ -4,7 +4,3 @@ export interface ClickDate {
     hour: string
     isWork: boolean
 }
-
-export interface ClickDatesProps {
-    clickDates: ClickDate[]
-}

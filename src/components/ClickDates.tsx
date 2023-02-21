@@ -1,4 +1,4 @@
-import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
+import useClickDatesWithContext from "../hooks/useClickDatesWithContext"
 
 function ClickDates() {
     const { clickDates } = useClickDatesWithContext()

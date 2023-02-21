@@ -1,51 +1,45 @@
 html {
     font-size: 62.5%; /* for the use of rem */
 }
-
 .App {
     max-width: 1440px;
     margin: auto;
     font-size: 1.6rem;
 }
-
 header {
     display: flex;
     justify-content: space-around;
 
-    max-width: 768px;
+    max-width: 1000px;
     margin: 40px auto;
 
     line-height: 40px;
 }
-
 .dashboard {
     font-size: 2rem;
 }
-
 .hours {
     font-weight: bold;
     font-size: 3rem;
 }
-
 button {
     min-height: 50px;
     padding: 0 20px;
     font-size: 3rem;
 }
-
+button:nth-child(2) {
+    color: red;
+}
 .click-dates {
     margin: 40px auto;
 }
-
 .click-date {
     display: inline-block;
     margin: 20px;
 }
-
 footer {
     margin: 40px auto;
 }
-
 footer pre {
     max-width: 400px;
     margin: auto;

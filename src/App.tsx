@@ -1,10 +1,10 @@
 import "./App.css"
+import clickDatesContext from "./contexts/clickDatesContext"
+import useClickDates from "./hooks/useClickDates"
 import WorkBreakButton from "./components/WorkBreakButton"
 import Dashboard from "./components/Dashboard"
 import ClickDates from "./components/ClickDates"
 import ClearLocalClickDates from "./components/ClearLocalClickDates"
-import useClickDates from "./hooks/useClickDates"
-import clickDatesContext from "./clickDatesContext"
 
 function App() {
     const { clickDates, setClickDates } = useClickDates()
@@ -16,11 +16,11 @@ function App() {
                     <WorkBreakButton />
 
                     <Dashboard />
+
+                    <ClearLocalClickDates />
                 </header>
 
                 <ClickDates />
-
-                <ClearLocalClickDates />
             </div>
         </clickDatesContext.Provider>
     )
