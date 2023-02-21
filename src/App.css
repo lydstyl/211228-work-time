@@ -1,7 +1,11 @@
+html {
+    font-size: 62.5%; /* for the use of rem */
+}
+
 .App {
     max-width: 1440px;
     margin: auto;
-    /* border: 1px solid; */
+    font-size: 1.6rem;
 }
 
 header {
@@ -12,12 +16,21 @@ header {
     margin: 40px auto;
 
     line-height: 40px;
+}
 
-    /* border: 1px solid; */
+.dashboard {
+    font-size: 2rem;
+}
+
+.hours {
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 button {
+    min-height: 50px;
     padding: 0 20px;
+    font-size: 3rem;
 }
 
 .click-dates {
@@ -37,5 +50,4 @@ footer pre {
     max-width: 400px;
     margin: auto;
     padding: 20px;
-    /* border: 1px solid; */
 }

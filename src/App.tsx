@@ -8,9 +8,13 @@ import ClickDates from "./components/ClickDates"
 import ClearLocalClickDates from "./components/ClearLocalClickDates"
 
 function App() {
-    const [clickDates, setClickDates] = useState<ClickDate[]>(
-        JSON.parse(localStorage.getItem("localClickDates")) || []
-    )
+    const localDates = localStorage.getItem("localClickDates")
+    let initialDates = []
+    if (localDates) {
+        initialDates = JSON.parse(localDates)
+    }
+
+    const [clickDates, setClickDates] = useState<ClickDate[]>(initialDates)
 
     return (
         <div className="App">
