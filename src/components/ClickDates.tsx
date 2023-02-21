@@ -1,7 +1,8 @@
-import { ClickDatesProps } from "../types/types"
+import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
 
-function ClickDates(props: ClickDatesProps) {
-    const { clickDates } = props
+function ClickDates() {
+    const { clickDates } = useClickDatesWithContext()
+
     return (
         <div className="click-dates">
             {clickDates.map(cd => (

@@ -1,12 +1,8 @@
 import { ClickDate } from "../types/types"
+import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
 
-interface WorkBreakButtonProps {
-    clickDates: ClickDate[]
-    setClickDates: (clickDates: ClickDate[]) => void
-}
-
-function WorkBreakButton(props: WorkBreakButtonProps) {
-    const { clickDates, setClickDates } = props
+function WorkBreakButton() {
+    const { clickDates, setClickDates } = useClickDatesWithContext()
 
     const handleClick = () => {
         const now = new Date()

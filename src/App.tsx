@@ -1,40 +1,28 @@
-import { useState } from "react"
-
 import "./App.css"
-import { ClickDate } from "./types/types"
 import WorkBreakButton from "./components/WorkBreakButton"
 import Dashboard from "./components/Dashboard"
 import ClickDates from "./components/ClickDates"
 import ClearLocalClickDates from "./components/ClearLocalClickDates"
+import useClickDates from "./hooks/useClickDates"
+import clickDatesContext from "./clickDatesContext"
 
 function App() {
-    const localDates = localStorage.getItem("localClickDates")
-    let initialDates = []
-    if (localDates) {
-        initialDates = JSON.parse(localDates)
-    }
-
-    const [clickDates, setClickDates] = useState<ClickDate[]>(initialDates)
+    const { clickDates, setClickDates } = useClickDates()
 
     return (
-        <div className="App">
-            <header>
-                <WorkBreakButton
-                    clickDates={clickDates}
-                    setClickDates={setClickDates}
-                />
+        <clickDatesContext.Provider value={{ clickDates, setClickDates }}>
+            <div className="App">
+                <header>
+                    <WorkBreakButton />
 
-                <Dashboard clickDates={clickDates} />
-            </header>
+                    <Dashboard />
+                </header>
 
-            <ClickDates clickDates={clickDates} />
+                <ClickDates />
 
-            <ClearLocalClickDates setClickDates={setClickDates} />
-
-            <footer>
-                <pre>{JSON.stringify(clickDates, null, 4)}</pre>
-            </footer>
-        </div>
+                <ClearLocalClickDates />
+            </div>
+        </clickDatesContext.Provider>
     )
 }
 

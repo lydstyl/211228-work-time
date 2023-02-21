@@ -1,12 +1,10 @@
-import { ClickDate } from "../types/types"
+import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
 
-type ClearLocalProps = {
-    setClickDates: (clickDates: ClickDate[]) => void
-}
+export default function ClearLocalClickDates() {
+    const { setClickDates } = useClickDatesWithContext()
 
-export default function ClearLocalClickDates(props: ClearLocalProps) {
     const handleClick = () => {
-        props.setClickDates([])
+        setClickDates([])
 
         localStorage.removeItem("localClickDates")
     }

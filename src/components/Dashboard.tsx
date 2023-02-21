@@ -1,7 +1,8 @@
-import { ClickDate, ClickDatesProps } from "../types/types"
+import useClickDatesWithContext from "../contexts/useClickDatesWithContext"
+import { ClickDate } from "../types/types"
 
-function Dashboard(props: ClickDatesProps) {
-    const { clickDates } = props
+function Dashboard() {
+    const { clickDates } = useClickDatesWithContext()
 
     const getWorkingMinutes = (clickDates: ClickDate[]) => {
         if (clickDates.length < 2) {
@@ -26,7 +27,7 @@ function Dashboard(props: ClickDatesProps) {
 
     const getWokringHours = (workingMinutes: number) => (
         <p>
-            <span>Work time: ${workingMinutes.toFixed(2)} minutes or </span>
+            <span>Work time: {workingMinutes.toFixed(2)} minutes or </span>
             <span className="hours">{`${(workingMinutes / 60).toFixed(
                 2
             )} hours`}</span>
