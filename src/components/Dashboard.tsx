@@ -24,10 +24,14 @@ function Dashboard(props: ClickDatesProps) {
         return min
     }
 
-    const getWokringHours = (workingMinutes: number) =>
-        `Work time: ${workingMinutes.toFixed(2)} minutes or ${(
-            workingMinutes / 60
-        ).toFixed(2)} hours`
+    const getWokringHours = (workingMinutes: number) => (
+        <p>
+            <span>Work time: ${workingMinutes.toFixed(2)} minutes or </span>
+            <span className="hours">{`${(workingMinutes / 60).toFixed(
+                2
+            )} hours`}</span>
+        </p>
+    )
 
     const workingMinutes = getWorkingMinutes(clickDates)
     const dashboardContent = getWokringHours(workingMinutes)

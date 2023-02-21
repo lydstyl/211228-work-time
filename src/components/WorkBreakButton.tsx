@@ -20,6 +20,8 @@ function WorkBreakButton(props: WorkBreakButtonProps) {
 
         const newClickDates = [...clickDates, newClickDate]
 
+        localStorage.setItem("localClickDates", JSON.stringify(newClickDates))
+
         setClickDates(newClickDates)
     }
 

@@ -5,9 +5,12 @@ import { ClickDate } from "./types/types"
 import WorkBreakButton from "./components/WorkBreakButton"
 import Dashboard from "./components/Dashboard"
 import ClickDates from "./components/ClickDates"
+import ClearLocalClickDates from "./components/ClearLocalClickDates"
 
 function App() {
-    const [clickDates, setClickDates] = useState<ClickDate[]>([])
+    const [clickDates, setClickDates] = useState<ClickDate[]>(
+        JSON.parse(localStorage.getItem("localClickDates")) || []
+    )
 
     return (
         <div className="App">
@@ -21,6 +24,8 @@ function App() {
             </header>
 
             <ClickDates clickDates={clickDates} />
+
+            <ClearLocalClickDates setClickDates={setClickDates} />
 
             <footer>
                 <pre>{JSON.stringify(clickDates, null, 4)}</pre>
